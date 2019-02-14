@@ -35,11 +35,16 @@ public class ContactsPage extends BaseClass {
         PageFactory.initElements(driver, this);
     }
 
-    public void createNewContact(String emailVal, String firstname, String lastname, String jobtitle) {
+    public void clickCreateContactBtn(){
         WebDriverWait wait = new WebDriverWait(driver, 10);
-
         wait.until(ExpectedConditions.elementToBeClickable(createContactBtn));
         createContactBtn.click();
+
+    }
+
+    public void createNewContact(String emailVal, String firstname, String lastname, String jobtitle) {
+
+        WebDriverWait wait = new WebDriverWait(driver, 10);
 
         wait.until(ExpectedConditions.elementToBeClickable(email));
         email.sendKeys(emailVal);

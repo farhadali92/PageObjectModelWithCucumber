@@ -40,8 +40,9 @@ public class HomePage extends BaseClass {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(contactsTab));
         contactsTab.click();
-        TestUtil.waitInSeconds(2);
+        TestUtil.waitInSeconds(5);
         contactsLink.click();
+        TestUtil.waitInSeconds(5);
         return new ContactsPage(driver);
     }
 
