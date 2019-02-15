@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -15,6 +16,7 @@ public class BaseClass {
     public static WebDriver driver;
     public static Properties prop;
     public static String path = System.getProperty("user.dir");
+
 
     public WebDriver init_driver(String browserName) {
 
@@ -39,12 +41,20 @@ public class BaseClass {
         prop = new Properties();
         FileInputStream ip = null;
         try {
-            ip = new FileInputStream(path+"\\src\\main\\java\\config\\config.properties");
+            ip = new FileInputStream(path + "\\src\\main\\java\\config\\config.properties");
             prop.load(ip);
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            try {
+                ip.close();
+            } catch (IOException ioex) {
+                ioex.fillInStackTrace();
+            }
+            return prop;
         }
-    return prop;
+
+
     }
 }
 

@@ -30,9 +30,12 @@ public class HomePage extends BaseClass {
         PageFactory.initElements(driver, this);
     }
 
-    public String getHomePageTitle(){
+    public void verifyhomepage(){
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(welcomeText));
+    }
+
+    public String getHomePageTitle(){
         return driver.getTitle();
     }
 
@@ -40,7 +43,7 @@ public class HomePage extends BaseClass {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(contactsTab));
         contactsTab.click();
-        TestUtil.waitInSeconds(5);
+        TestUtil.waitInSeconds(2);
         contactsLink.click();
         TestUtil.waitInSeconds(5);
         return new ContactsPage(driver);

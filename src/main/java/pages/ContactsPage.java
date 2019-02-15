@@ -39,7 +39,6 @@ public class ContactsPage extends BaseClass {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(createContactBtn));
         createContactBtn.click();
-
     }
 
     public void createNewContact(String emailVal, String firstname, String lastname, String jobtitle) {

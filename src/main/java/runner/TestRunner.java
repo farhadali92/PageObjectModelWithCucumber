@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "D:\\FA Automation Projects\\pageObjectModelWithCucumber\\src\\main\\java\\features"
+        features = "D:\\Automation\\Projects\\PageObjectModelWithCucumber\\src\\main\\java\\features"
         , glue = {"stepDefinitions"}
         //,format={"pretty", "html:testResult.html","json:testResultJson.json", "junit:testResultXml.xml"}
         //,dryRun = true
@@ -16,5 +16,7 @@ import org.junit.runner.RunWith;
 
 )
 public class TestRunner {
+
+
 
 }
