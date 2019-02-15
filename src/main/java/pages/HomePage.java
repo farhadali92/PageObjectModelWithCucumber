@@ -1,17 +1,13 @@
 package pages;
 
-import base.BaseClass;
-import constants.Constants;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.TestUtil;
 
-public class HomePage extends BaseClass {
-
+public class HomePage extends AbstractPage {
 
     @FindBy(xpath = "//h1[text()='Sales Dashboard']")
     WebElement homePageHeader;
@@ -26,30 +22,26 @@ public class HomePage extends BaseClass {
     WebElement contactsLink;
 
     public HomePage(WebDriver driver){
-        this.driver = driver;
+        super(driver);
+
         PageFactory.initElements(driver, this);
     }
 
-    public void verifyhomepage(){
-        WebDriverWait wait = new WebDriverWait(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(welcomeText));
+    public void verifyHomePage(){
+        getWebDriverWait().until(ExpectedConditions.visibilityOf(welcomeText));
     }
 
     public String getHomePageTitle(){
-        return driver.getTitle();
+        return getDriver().getTitle();
     }
 
     public ContactsPage gotoContactsPage(){
-        WebDriverWait wait = new WebDriverWait(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(contactsTab));
+        getWebDriverWait().until(ExpectedConditions.visibilityOf(contactsTab));
         contactsTab.click();
         TestUtil.waitInSeconds(2);
         contactsLink.click();
         TestUtil.waitInSeconds(5);
-        return new ContactsPage(driver);
+        return new ContactsPage(getDriver());
     }
-
-
-
 
 }

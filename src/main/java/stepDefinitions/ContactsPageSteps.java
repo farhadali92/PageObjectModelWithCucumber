@@ -1,41 +1,41 @@
 package stepDefinitions;
 
-import base.BaseClass;
 import cucumber.api.DataTable;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import factory.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
 import pages.ContactsPage;
 import pages.HomePage;
 import pages.LoginPage;
+import utils.PropertiesUtils;
 
 import java.util.Map;
-import java.util.Properties;
 
-public class ContactsPageSteps extends BaseClass {
+public class ContactsPageSteps {
 
-    public BaseClass baseClass;
     public WebDriver driver;
-    public Properties prop;
+    public PropertiesUtils propertiesUtils;
     public LoginPage loginPage;
     public HomePage homePage;
     public ContactsPage contactsPage;
 
-
     @Before("@contactsfeature")
-    public void setUp() {
-        baseClass = new BaseClass();
-        prop = BaseClass.init_properties();
-        String browser = prop.getProperty("browser");
-        driver = baseClass.init_driver(browser);
-        driver.get(prop.getProperty("url"));
+    public void setUp() throws Exception {
+        propertiesUtils = PropertiesUtils.getInstance();
+
+        String browser = propertiesUtils.get("browser");
+
+        driver = WebDriverFactory.getWebDriver(browser);
+        driver.get(propertiesUtils.get("url"));
+
         loginPage = new LoginPage(driver);
-        loginPage.EnterUsernameAndPassword();
+        loginPage.enterUsernameAndPassword(propertiesUtils.get("username"), propertiesUtils.get("password"));
         homePage = loginPage.clickLoginButton();
-        homePage.verifyhomepage();
+        homePage.verifyHomePage();
     }
 
     @Given("^user open contacts page$")

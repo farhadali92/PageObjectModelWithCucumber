@@ -1,41 +1,39 @@
 package pages;
 
-import base.BaseClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import utils.TestUtil;
 
-public class LoginPage extends BaseClass {
+public class LoginPage extends AbstractPage {
 
     @FindBy(id = "username")
-    WebElement emailAddress;
+    WebElement usernameField;
 
     @FindBy(id = "password")
-    WebElement password;
+    WebElement passwordField;
 
     @FindBy(xpath = "//button[@id=\"loginBtn\"]/*[text()='Log in']")
-    WebElement loginBtn;
+    WebElement loginButton;
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(this.driver, this);
+        super(driver);
+
+        PageFactory.initElements(driver, this);
     }
 
-    public void EnterUsernameAndPassword() {
-        emailAddress.sendKeys(prop.getProperty("username"));
-        password.sendKeys(prop.getProperty("password"));
+    public void enterUsernameAndPassword(String username, String password) {
+        usernameField.sendKeys(username);
+        passwordField.sendKeys(password);
     }
 
     public HomePage clickLoginButton() {
-        loginBtn.click();
-        return new HomePage(driver);
+        loginButton.click();
+        return new HomePage(getDriver());
     }
 
     public String verifyLoginPageTitle() {
-        return driver.getTitle();
+        return getDriver().getTitle();
     }
-
 
 }

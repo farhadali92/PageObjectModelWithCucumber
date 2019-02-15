@@ -1,15 +1,13 @@
 package pages;
 
-import base.BaseClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class ContactsPage extends BaseClass {
+public class ContactsPage extends AbstractPage {
 
     @FindBy(xpath = "//span[text()='Create contact']")
     WebElement createContactBtn;
@@ -31,33 +29,31 @@ public class ContactsPage extends BaseClass {
 
 
     public ContactsPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
+
         PageFactory.initElements(driver, this);
     }
 
-    public void clickCreateContactBtn(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.elementToBeClickable(createContactBtn));
+    public void clickCreateContactBtn() {
+        getWebDriverWait().until(ExpectedConditions.elementToBeClickable(createContactBtn));
         createContactBtn.click();
     }
 
-    public void createNewContact(String emailVal, String firstname, String lastname, String jobtitle) {
-
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-
-        wait.until(ExpectedConditions.elementToBeClickable(email));
+    public void createNewContact(String emailVal, String firstname, String lastname, String jobTitle) {
+        getWebDriverWait().until(ExpectedConditions.elementToBeClickable(email));
         email.sendKeys(emailVal);
 
-        wait.until(ExpectedConditions.elementToBeClickable(firstName));
+        getWebDriverWait().until(ExpectedConditions.elementToBeClickable(firstName));
         firstName.sendKeys(firstname);
 
-        wait.until(ExpectedConditions.elementToBeClickable(lastName));
+        getWebDriverWait().until(ExpectedConditions.elementToBeClickable(lastName));
         lastName.sendKeys(lastname);
 
-        wait.until(ExpectedConditions.elementToBeClickable(jobTitle));
-        jobTitle.sendKeys(jobtitle);
+        getWebDriverWait().until(ExpectedConditions.elementToBeClickable(this.jobTitle));
+        this.jobTitle.sendKeys(jobTitle);
 
-        wait.until(ExpectedConditions.elementToBeClickable(createContactSecondBtn));
+        getWebDriverWait().until(ExpectedConditions.elementToBeClickable(createContactSecondBtn));
+
         //createContactSecondBtn.click();
     }
 

@@ -1,0 +1,220 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 5878818520,
+              "status": "passed"
+            },
+            "match": {
+              "location": "LoginPageSteps.setUp()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "validate free crm login page",
+        "description": "",
+        "id": "free-crm-application-login-page-tests;validate-free-crm-login-page",
+        "after": [
+          {
+            "result": {
+              "duration": 643288332,
+              "status": "passed"
+            },
+            "match": {
+              "location": "LoginPageSteps.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1891805685,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "user Navigates to hubspot website",
+            "match": {
+              "location": "LoginPageSteps.user_Navigates_to_freeCRM_website()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 923127306,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "user enters username and password",
+            "match": {
+              "location": "LoginPageSteps.user_enters_username_and_password()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 126597888,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "user clicks on login button",
+            "match": {
+              "location": "LoginPageSteps.user_click_on_login_button()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3376084351,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "homepage should be displayed",
+            "match": {
+              "location": "LoginPageSteps.homepageShouldBeDisplayed()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "free crm application login page tests",
+    "description": "",
+    "id": "free-crm-application-login-page-tests",
+    "keyword": "Feature",
+    "uri": "1_loginFeature.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@loginfeature"
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 9815650863,
+              "status": "passed"
+            },
+            "match": {
+              "location": "ContactsPageSteps.setUp()"
+            }
+          }
+        ],
+        "line": 4,
+        "name": "validate free crm contact page test",
+        "description": "",
+        "id": "free-crm-application-contacts-page-test;validate-free-crm-contact-page-test",
+        "after": [
+          {
+            "result": {
+              "duration": 636191890,
+              "status": "passed"
+            },
+            "match": {
+              "location": "ContactsPageSteps.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 8284187899,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "user open contacts page",
+            "match": {
+              "location": "ContactsPageSteps.userOpenContactsPage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 278116884,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "user clicks on create contact button",
+            "match": {
+              "location": "ContactsPageSteps.userClicksOnCreateContactButton()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 5398655827,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "user enters data",
+            "match": {
+              "location": "ContactsPageSteps.userEntersData(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "Email",
+                  "Firstname",
+                  "Lastname",
+                  "JobTitle"
+                ],
+                "line": 9
+              },
+              {
+                "cells": [
+                  "test1@gmail.com",
+                  "fa",
+                  "A",
+                  "Test"
+                ],
+                "line": 10
+              },
+              {
+                "cells": [
+                  "test2@gmail.com",
+                  "far",
+                  "Al",
+                  "Tester"
+                ],
+                "line": 11
+              },
+              {
+                "cells": [
+                  "test3@gmail.com",
+                  "farh",
+                  "Ali",
+                  "Test Analyst"
+                ],
+                "line": 12
+              }
+            ],
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "free crm application contacts page test",
+    "description": "",
+    "id": "free-crm-application-contacts-page-test",
+    "keyword": "Feature",
+    "uri": "2_contactsFeature.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@contactsfeature"
+      }
+    ]
+  }
+]
