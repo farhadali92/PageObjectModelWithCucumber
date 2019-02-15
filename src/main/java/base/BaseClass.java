@@ -6,8 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -37,26 +39,38 @@ public class BaseClass {
         return driver;
     }
 
+//    public static Properties init_properties() {
+//        prop = new Properties();
+//        FileInputStream ip = null;
+//        try {
+//            ip = new FileInputStream(path + "\\src\\main\\java\\config\\config.properties");
+//            prop.load(ip);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        } finally {
+//            try {
+//                ip.close();
+//            } catch (IOException ioex) {
+//                ioex.fillInStackTrace();
+//            }
+//            return prop;
+//        }
+//    }
+
     public static Properties init_properties() {
         prop = new Properties();
-        FileInputStream ip = null;
+        InputStream ip = null;
         try {
-            ip = new FileInputStream(path + "\\src\\main\\java\\config\\config.properties");
+            ip = BaseClass.class.getClassLoader().getResourceAsStream("config\\config.properties");
             prop.load(ip);
-        } catch (Exception e) {
+        } catch (IOException e) {
+            System.err.println("Error detected");
             e.printStackTrace();
-        } finally {
-            try {
-                ip.close();
-            } catch (IOException ioex) {
-                ioex.fillInStackTrace();
-            }
-            return prop;
         }
-
-
+        return prop;
     }
 }
+
 
 
 
