@@ -1,5 +1,5 @@
 @loginfeature
-Feature: free crm application login page tests
+Feature: hub spot application login page tests
 
 
   Scenario: validate free crm login page

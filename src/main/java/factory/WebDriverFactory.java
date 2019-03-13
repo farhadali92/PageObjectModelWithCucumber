@@ -22,12 +22,10 @@ public class WebDriverFactory {
         } else {
             throw new IllegalArgumentException("Unknown browser: " + browserName);
         }
-
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().pageLoadTimeout(Constants.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS.SECONDS);
-        webDriver.manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT,TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT, TimeUnit.SECONDS);
         webDriver.manage().deleteAllCookies();
-
         return webDriver;
     }
 
